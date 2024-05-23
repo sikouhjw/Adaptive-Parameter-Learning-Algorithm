@@ -1,4 +1,4 @@
-function [psi, term_scale] = Estimate_EM(Input, obj, m_z_plus, v_z_plus)
+function [psi, term_scale] = Estimate_EM_Bethe(Input, obj, m_z_plus, v_z_plus)
   In = Input.In;
   Out = Input.Out;
   quan_step = Out.quan_step;

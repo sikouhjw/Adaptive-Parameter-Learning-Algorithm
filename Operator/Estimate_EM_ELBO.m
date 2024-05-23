@@ -1,4 +1,4 @@
-function [psi, term_scale] = Estimate_EM_ELBO_enhance(Input, obj, m_z_plus, v_z_plus)
+function [psi, term_scale] = Estimate_EM_ELBO(Input, obj, m_z_plus, v_z_plus)
   In = Input.In;
   Out = Input.Out;
   quan_step = Out.quan_step;

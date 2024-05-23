@@ -121,24 +121,24 @@ function [MSE_error, HIT_error, psi_error, term_scale_error] = Complex_OTFS_GAMP
     if Input.estimation_enable == 1
       if psi <= 1e-1
         if abs(MSE - MSE_old)^2 / MSE^2 <= 1e-3 || MSE > MSE_old
-          [psi, term_scale] = Estimate_EM_ELBO_enhance(Input, obj, Z_a, V_a);
+          [psi, term_scale] = Estimate_EM_ELBO(Input, obj, Z_a, V_a);
         end
       else
         if abs(MSE - MSE_old)^2 / MSE^2 <= 1e-3 || MSE > MSE_old
-          [psi, term_scale] = Estimate_EM(Input, obj, Z_a, V_a);
+          [psi, term_scale] = Estimate_EM_Bethe(Input, obj, Z_a, V_a);
         end
       end
     elseif Input.estimation_enable == 2
       if abs(MSE - MSE_old)^2 / MSE^2 <= 1e-3 || MSE > MSE_old
-        [psi, term_scale] = Estimate_EM_ELBO_enhance(Input, obj, Z_a, V_a);
+        [psi, term_scale] = Estimate_EM_ELBO(Input, obj, Z_a, V_a);
       end
     elseif Input.estimation_enable == 3
       if abs(MSE - MSE_old)^2 / MSE^2 <= 1e-3 || MSE > MSE_old
-        [psi, term_scale] = Estimate_EM(Input, obj, Z_a, V_a);
+        [psi, term_scale] = Estimate_EM_Bethe(Input, obj, Z_a, V_a);
       end
     else
       if abs(MSE - MSE_old)^2 / MSE^2 <= 1e-3 || MSE > MSE_old
-        psi = Estimate_AWGN_noise_EM(Input, obj, tilde_z_a, tilde_v_a);
+        psi = Estimate_EM_AWGN(Input, obj, tilde_z_a, tilde_v_a);
         term_scale = 0;
       end
     end

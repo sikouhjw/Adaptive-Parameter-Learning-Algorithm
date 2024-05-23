@@ -1,4 +1,4 @@
-function psi = Estimate_AWGN_noise_EM(Input, obj, m_z, v_z)
+function psi = Estimate_EM_AWGN(Input, obj, m_z, v_z)
   In = Input.In;
   Out = Input.Out;
   quan_step = Out.quan_step;
